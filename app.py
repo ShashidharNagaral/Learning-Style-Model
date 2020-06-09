@@ -4,6 +4,7 @@ from utils import lsDictionary as d
 import visualVerbalModel as VVModel
 import activeReflectiveModel as ARModel
 import sensingIntuitiveModel as SIModel
+import sequentialGlobalModel as SGModel
 app = Flask(__name__)
 
 
@@ -24,6 +25,8 @@ def predict():
     model_input = util.transformToModelInput(data, d['si'])
     model_output = SIModel.predict(model_input)
     output = util.insertLS(model_output, output, 'si')
+    # ------sequential global model -----#
+    output = SGModel.getUserPath(data, output)
     print(output)
     response = {'model_response': json.dumps(output)}
     return response
