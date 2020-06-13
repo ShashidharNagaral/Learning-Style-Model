@@ -3,7 +3,9 @@
 lsDictionary = {
     'vv': ['videostay', 'pdfstay', 'pptstay'],
     'ar': ['forumpost', 'forumstay', 'teststay', 'testcount', 'contentstay', 'contentcount'],
-    'si': ['teststay', 'contentstay', 'contentcount', 'total_attempt']
+    'si': ['teststay', 'contentstay', 'contentcount', 'total_attempt'],
+    'conf': ['forumstay', 'forumpost', 'testcount', 'contentstay'],
+    'eff': ['forumpost', 'forumcount', 'teststay', 'testcount']
 }
 
 
@@ -40,7 +42,12 @@ def labelOutput(e, ls):
     if ls == 'ar':
         return "reflective" if e else "active"
     if ls == 'si':
-        return "sensing" if e else "intuitive"
+        return "intuitive" if e else "sensing"
+    if ls == 'conf':
+        return "NO" if e else "YES"
+    if ls == 'eff':
+        return "NO" if e else "YES"
+
 
 #   to insert the learning style in output
 def insertLS(source, target, ls):
